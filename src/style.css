@@ -1,0 +1,512 @@
+/* first element */
+
+.WholeScreen {
+    margin: 0;
+    font-size: 10px;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+}
+
+#GameOfLife {
+    background-color: rgb(216, 216, 216);
+    z-index: -1;
+}
+
+/* secound element */
+
+
+/* Animation part */
+
+@keyframes ImageClicking {
+    0% {
+        transform: scale(1.2);
+        z-index: 2;
+        border-radius: 0;
+    }
+    100% {
+        transform: scale(var(--scale));
+        z-index: 2;
+        border-radius: 0;
+    }
+}
+
+@keyframes ImageClicked {
+    0% {
+        transform: scale(var(--scale));
+        z-index: 2;
+        border-radius: 0;
+    }
+}
+
+
+/* we use margin-left instead of transform because transform has bug in calculation */
+
+@keyframes ImageClickingMove {
+    100% {
+        transform: scale(var(--scale));
+        margin-left: calc(40vw - var(--marginLeft) - var(--width) * var(--scale));
+    }
+}
+
+@keyframes ImageClickedMove {
+    0% {
+        transform: scale(var(--scale));
+        margin-left: calc(40vw - var(--marginLeft) - var(--width) * var(--scale));
+    }
+}
+
+@keyframes ImgHoverIn {
+    100% {
+        z-index: 2;
+        border-radius: 0;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes ImgHoverOut {
+    0% {
+        z-index: 2;
+        border-radius: 0;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes DescriptionOpen {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: calc(var(--width) * 3 * var(--scale));
+    }
+}
+
+@keyframes DescriptionClose {
+    0% {
+        width: calc(var(--width) * 3 * var(--scale));
+    }
+    100% {
+        width: 0%;
+    }
+}
+
+@keyframes DescriptionContentHiding {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes DescriptionContentHided {
+    0% {
+        opacity: 0;
+    }
+}
+
+.Container {
+    position: absolute;
+    height: 100vh;
+    width: 80vw;
+    top: 0;
+    left: 10vw;
+}
+
+
+/* images variables */
+
+.VarsMyImage {
+    --width: 18vw;
+    --height: 18vw;
+    --marginLeft: 9vw;
+    --marginTop: 9vw;
+    --scale: 1.3;
+    --fontSize: 1.3vw
+}
+
+.VarsGitHub {
+    --width: 10vw;
+    --height: 10vw;
+    --marginLeft: 20vw;
+    --marginTop: 7vw;
+    --scale: 1.3;
+    --fontSize: 1.2vw
+}
+
+.Varsphp {
+    --width: 7vw;
+    --height: 7vw;
+    --marginLeft: 17vw;
+    --marginTop: 15vw;
+    --scale: 1.3;
+    --fontSize: 1.1vw
+}
+
+.Varspython {
+    --width: 7vw;
+    --height: 7vw;
+    --marginLeft: 20vw;
+    --marginTop: -4vw;
+    --scale: 1.3;
+    --fontSize: 1.3vw
+}
+
+.Varsdjango {
+    --width: 3vw;
+    --height: 3vw;
+    --marginLeft: 12.5vw;
+    --marginTop: -5vw;
+    --scale: calc(7 / 3 * 1.3);
+    --fontSize: 1.3vw
+}
+
+.Varsjavascript {
+    --width: 7vw;
+    --height: 7vw;
+    --marginLeft: 28vw;
+    --marginTop: 7vw;
+    --scale: 1.3;
+    --fontSize: 1.3vw
+}
+
+.Varsjquery {
+    --width: 5vw;
+    --height: 5vw;
+    --marginLeft: 23vw;
+    --marginTop: 13vw;
+    --scale: calc(7 / 5 * 1.3);
+    --fontSize: 1.3vw
+}
+
+.Varsreact {
+    --width: 3vw;
+    --height: 3vw;
+    --marginLeft: -17.5vw;
+    --marginTop: -8vw;
+    --scale: calc(7 / 3 * 1.3);
+    --fontSize: 1.3vw
+}
+
+.Varscpp {
+    --width: 5vw;
+    --height: 5vw;
+    --marginLeft: 26vw;
+    --marginTop: -1vw;
+    --scale: calc(7 / 5 * 1.3);
+    --fontSize: 1.3vw
+}
+
+.Varshtml {
+    --width: 5vw;
+    --height: 5vw;
+    --marginLeft: 12.5vw;
+    --marginTop: -9vw;
+    --scale: calc(7 / 5 * 1.3);
+    --fontSize: 1.3vw
+}
+
+.Varscss {
+    --width: 6vw;
+    --height: 6vw;
+    --marginLeft: 7vw;
+    --marginTop: -10vw;
+    --scale: calc(7 / 6 * 1.3);
+    --fontSize: 1.3vw
+}
+
+.Varsbootstrap {
+    --width: 5vw;
+    --height: 5vw;
+    --marginLeft: -8vw;
+    --marginTop: -9vw;
+    --scale: calc(7 / 5 * 1.3);
+    --fontSize: 1.3vw
+}
+
+.Varsmysql {
+    --width: 7vw;
+    --height: 7vw;
+    --marginLeft: 2vw;
+    --marginTop: 17vw;
+    --scale: 1.3;
+    --fontSize: 1.3vw
+}
+
+.Varscontact {
+    --width: 9vw;
+    --height: 9vw;
+    --marginLeft: -10vw;
+    --marginTop: 9vw;
+    --scale: 1.3;
+    --fontSize: 1.2vw
+}
+
+.Varsexperience {
+    --width: 7vw;
+    --height: 7vw;
+    --marginLeft: -10vw;
+    --marginTop: -1vw;
+    --scale: calc(7 / 5 * 1.3);
+    --fontSize: 1.1vw
+}
+
+.Varslaravel {
+    --width: 6vw;
+    --height: 6vw;
+    --marginLeft: 9vw;
+    --marginTop: 16vw;
+    --scale: calc(7 / 6 * 1.3);
+    --fontSize: 1.2vw
+}
+
+.Varswhmcs {
+    --width: 5vw;
+    --height: 5vw;
+    --marginLeft: -6vw;
+    --marginTop: 15vw;
+    --scale: calc(7 / 5 * 1.3);
+    --fontSize: 1.3vw
+}
+
+.Varstypescript {
+    --width: 3vw;
+    --height: 3vw;
+    --marginLeft: -13.5vw;
+    --marginTop: -8.5vw;
+    --scale: calc(7 / 3 * 1.3);
+    --fontSize: 1.3vw
+}
+
+.Varssqlite {
+    --width: 3vw;
+    --height: 3vw;
+    --marginLeft: -19vw;
+    --marginTop: 13vw;
+    --scale: calc(7 / 3 * 1.3);
+    --fontSize: 1.3vw
+}
+
+.Varsgit {
+    --width: 7vw;
+    --height: 7vw;
+    --marginLeft: 0vw;
+    --marginTop: -10vw;
+    --scale: 1.3;
+    --fontSize: 1.3vw
+}
+
+.Varsskills {
+    --width: 6vw;
+    --height: 6vw;
+    --marginLeft: -12vw;
+    --marginTop: 16vw;
+    --scale: calc(8 / 6 * 1.3);
+    --fontSize: 1.2vw
+}
+
+.Varscreativity {
+    --width: 4vw;
+    --height: 4vw;
+    --marginLeft: -20vw;
+    --marginTop: 9vw;
+    --scale: calc(7 / 4 * 1.3);
+    --fontSize: 1.1vw
+}
+
+.VarsinternetWorm {
+    --width: 6vw;
+    --height: 6vw;
+    --marginLeft: -18vw;
+    --marginTop: -1vw;
+    --scale: calc(7 / 6 * 1.3);
+    --fontSize: 1.1vw
+}
+
+.Varseducation {
+    --width: 4vw;
+    --height: 4vw;
+    --marginLeft: -20vw;
+    --marginTop: 4vw;
+    --scale: calc(7 / 4 * 1.3);
+    --fontSize: 1vw
+}
+
+
+/* other styles */
+
+.Pictures {
+    cursor: pointer;
+    position: absolute;
+    box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.375);
+    border-radius: 20%;
+    width: var(--width);
+    height: var(--height);
+    margin-left: calc(40vw - var(--marginLeft));
+    margin-top: calc(50vh - var(--marginTop));
+}
+
+.Description {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.375);
+    z-index: 1;
+    /* we do not use scale(var(--scale)) because when we * var(--scale) it cause miss calculation */
+    width: calc(var(--width) * 3 * var(--scale));
+    height: calc(var(--height) * var(--scale));
+    /* - var(--width) * 0.15              for   scaleY(var(--scale)) => var(--scale = 1.3 for sample) - 1 = 0.3 (increasement size) => 0.3 / 2 = 0.15 (change position size) 
+       - var(--width) * var(--scale)    for   width: calc(var(--width) * 3 * var(--scale));  */
+    margin-left: calc(40vw - var(--marginLeft) - var(--width) * (var(--scale) - 1) / 2 - var(--width) * var(--scale) - 2vw);
+    margin-top: calc(50vh - var(--marginTop) - var(--width) * (var(--scale) - 1) / 2);
+}
+
+.imgClicking {
+    animation: ImageClicking 0.3s ease-out 0s both, ImageClickingMove 0.4s ease-out 0.3s both;
+}
+
+.imgClicked {
+    animation: ImageClickedMove 0.4s ease-out 0s both, ImageClicked 0.3s ease-out 0.4s both;
+}
+
+.imgHovering {
+    animation: ImgHoverIn 0.2s ease-out forwards;
+}
+
+.imgHovered {
+    animation: ImgHoverOut 0.2s ease-out forwards;
+}
+
+.DescriptionOpen {
+    animation: DescriptionOpen 0.3s ease-out both;
+}
+
+.DescriptionClose {
+    animation: DescriptionClose 0.3s ease-out both;
+}
+
+.DescriptionContentHiding {
+    animation: DescriptionContentHiding 0.1s ease-out both;
+}
+
+.DescriptionContentHided {
+    animation: DescriptionContentHided 0.1s ease-out both;
+}
+
+.DescriptionLeftArrow {
+    width: 2vw;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.375);
+    margin-left: 0px;
+    position: absolute;
+}
+
+.DescriptionRightArrow {
+    width: 2vw;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.375);
+    margin-left: calc(var(--width) * 3 * var(--scale) - 2vw);
+    position: absolute;
+}
+
+.DescriptionLeftArrow img {
+    width: 2vw;
+    height: 2vw;
+    margin-top: calc(var(--height) * var(--scale)/2 - 1vw);
+}
+
+.DescriptionRightArrow img {
+    width: 2vw;
+    height: 2vw;
+    margin-top: calc(var(--height) * var(--scale)/2 - 1vw);
+}
+
+.DescriptionContent {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: Roboto;
+    font-size: calc(var(--fontSize));
+    padding: 2%;
+    box-sizing: border-box;
+    height: calc(var(--height) * var(--scale));
+    width: calc(var(--width) * 2 * var(--scale) - 4vw);
+    margin-left: calc(var(--width) * var(--scale) + 2vw);
+}
+
+.skillsBar {
+    background: #cdcdcd;
+    height: 2px;
+    position: relative;
+    border-radius: 2px;
+    margin-top: 7%
+}
+
+.Bar {
+    position: absolute;
+    top: -1px;
+    height: 4px;
+    background: #000000;
+    box-shadow: 0 0 0 #000000;
+    border-radius: 5px;
+}
+
+.skillsBarPosition {
+    display: flex;
+    margin-top: 5%;
+}
+
+.myList {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.myList li {
+    position: relative;
+    padding-left: 1em;
+    margin-bottom: 0.5em;
+}
+
+.myList li::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: #3d405b;
+    left: 5px;
+    top: 10.5PX;
+}
+
+.myList li::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border: 3px solid #3d405b;
+    background: #fcfcfc;
+    border-radius: 50%;
+    left: 0;
+    z-index: 1;
+}
+
+.myList li small {
+    display: block;
+}
+
+/* third element */
+
+#ThreeDPlatform {
+    background-color: black;
+    z-index: 10;
+    color: rgb(72, 255, 0);
+}
+
+#WelcomeToMyWebSite{
+    margin: 0;
+    font-size:  1.5vmax;
+    color: rgb(72, 255, 0);
+    position: fixed;
+    padding-top: calc(50vh - 2vw);
+    z-index: 11;
+    text-align: center;
+    text-shadow: 0px 0px 20px rgb(72, 255, 0);
+}
